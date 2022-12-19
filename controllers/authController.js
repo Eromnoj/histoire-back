@@ -59,11 +59,11 @@ const logout = async (req, res) => {
   res.cookie('token', 'logout', {
     httpOnly: true,
     // expires: new Date(Date.now()),
-    // secure: process.env.NODE_ENV === 'production',
-    secure: true,
+    secure: process.env.NODE_ENV === 'production',
+    // secure: true,
     signed: true,
     maxAge: -1,
-    sameSite: 'none'
+    // sameSite: 'none'
   })
   
   res.clearCookie('token')
